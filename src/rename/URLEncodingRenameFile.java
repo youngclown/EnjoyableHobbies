@@ -1,8 +1,8 @@
 package rename;
 
 import java.io.File;
-import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 
 import util.FileUtil;
 
@@ -48,9 +48,9 @@ public class URLEncodingRenameFile {
         }
     }
 
-    private void renameFile(String filename) throws UnsupportedEncodingException {
+    private void renameFile(String filename) {
         File file = new File(filename);
-        File fileNew = new File(URLDecoder.decode(filename, "UTF-8"));
+        File fileNew = new File(URLDecoder.decode(filename, StandardCharsets.UTF_8));
         if (file.exists()) {
             boolean result = file.renameTo(fileNew);
             if (result) {

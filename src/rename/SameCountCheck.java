@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * 두개의 파일에서 같은 파일들을 검색하여, 틀릴 경우 틀린 데이터를 보여준다.
+ * 두개의 파일에서 같은 파일들을 검색하여, 틀릴 경우 틀린 데이터를 보여줍니다.
  */
 public class SameCountCheck {
     public static void main(String[] args) {
