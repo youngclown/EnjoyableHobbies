@@ -13,7 +13,7 @@ import util.FileUtil;
  * @author bymin
  */
 public class URLEncodingRenameFile {
-    final static String PATH = "경로를 삽입합니다!";
+    final static String PATH = "real path insert!";
 
     public static void main(String[] args) {
         URLEncodingRenameFile rename = new URLEncodingRenameFile();
@@ -38,7 +38,7 @@ public class URLEncodingRenameFile {
                         String fileNm = file.getAbsolutePath();
                         boolean result = file.delete();
                         if (result) {
-                            System.out.println(fileNm + "폴더 삭제!");
+                            System.out.println(fileNm + " folder delete!");
                         }
                     }
                 } else {
@@ -54,7 +54,7 @@ public class URLEncodingRenameFile {
         if (file.exists()) {
             boolean result = file.renameTo(fileNew);
             if (result) {
-                System.out.println(fileNew + "으로 이름변경 성공!");
+                System.out.println(fileNew + " name change success!");
             }
         }
     }
