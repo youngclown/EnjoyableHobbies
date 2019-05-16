@@ -50,7 +50,8 @@ public class URLEncodingRenameFile {
 
     private void renameFile(String filename) {
         File file = new File(filename);
-        File fileNew = new File(URLDecoder.decode(filename, StandardCharsets.UTF_8));
+        // 한칸 빈값을 지우면서 새로운 파일명으로 변경
+        File fileNew = new File(URLDecoder.decode(filename, StandardCharsets.UTF_8).replace(" ",""));
         if (file.exists()) {
             boolean result = file.renameTo(fileNew);
             if (result) {

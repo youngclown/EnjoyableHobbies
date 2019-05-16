@@ -29,15 +29,15 @@ public class FileInSearch extends search.FileInSearch {
     }
 
     public void checkPattern(String line) {
-        System.out.println(line);
-//		String temp[] = line.split("&u=");
-//		temp = temp[1].split("&pc=");
-//		
-//		if (this.map.get(temp[0]) == null) {
-//			this.map.put(temp[0], 1);
-//		} else {
-//			this.map.put(temp[0], this.map.get(temp[0])+1);
-//		}
+//        System.out.println(line);
+		String temp[] = line.split("price=");
+		temp = temp[1].split("&sc=");
+
+		if (this.map.get(temp[0]) == null) {
+			this.map.put(temp[0], 1);
+		} else {
+			this.map.put(temp[0], this.map.get(temp[0])+1);
+		}
     }
 
 
