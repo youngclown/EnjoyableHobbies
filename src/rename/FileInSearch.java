@@ -29,7 +29,7 @@ public class FileInSearch extends search.FileInSearch {
     }
 
     public void checkPattern(String line) {
-//        System.out.println(line);
+        System.out.println(line);
 		String temp[] = line.split("price=");
 		temp = temp[1].split("&sc=");
 

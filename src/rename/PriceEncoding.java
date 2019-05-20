@@ -5,15 +5,13 @@ import util.Decrypter;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-import java.io.ByteArrayInputStream;
-import java.io.DataInputStream;
-import java.io.IOException;
+import java.io.*;
 
 public class PriceEncoding {
 
     public static void main(String[] args) {
 
-        final String PATH = "D:\\home\\0000000001";
+        final String PATH = "D:\\1234\\";
         final String[] inKeyword = {"rtbWin"};
         final String[] orKeyword = {};
         final String[] exceptKeyword = {};
@@ -25,10 +23,10 @@ public class PriceEncoding {
         int cnt = 0;
         for (String key : check.getMap().keySet()) {
 
-            System.out.println(key + "\t" + check.getMap().get(key));
+//            System.out.println(key + "\t" + check.getMap().get(key));
             byte[] codeString = Base64.decodeBase64(Decrypter.unWebSafeAndPad(key).getBytes());
-            byte[] encryptionKeyBytes = Base64.decodeBase64(Decrypter.unWebSafeAndPad("eKey").getBytes());
-            byte[] integrityKeyBytes = Base64.decodeBase64(Decrypter.unWebSafeAndPad("iKey").getBytes());
+            byte[] encryptionKeyBytes = Base64.decodeBase64(Decrypter.unWebSafeAndPad(getKey("file input")).getBytes());
+            byte[] integrityKeyBytes = Base64.decodeBase64(Decrypter.unWebSafeAndPad(getKey("file input")).getBytes());
             byte[] plaintext;
             SecretKey encryptionKey = new SecretKeySpec(encryptionKeyBytes, "HmacSHA1");
             SecretKey integrityKey = new SecretKeySpec(integrityKeyBytes, "HmacSHA1");
@@ -37,16 +35,43 @@ public class PriceEncoding {
                 DataInputStream dis = new DataInputStream(new ByteArrayInputStream(plaintext));
                 price += dis.readLong() * check.getMap().get(key);
                 cnt += check.getMap().get(key);
-                System.out.println(dis.readLong() * check.getMap().get(key));
-            } catch (IOException e) {
-//                e.printStackTrace();
-//            logger.error("Failed to decode ciphertext. {}",encryptionKey,e);
+//                System.out.println(dis.readLong() * check.getMap().get(key));
             } catch (Exception e) {
-//                e.printStackTrace();
+                System.out.println("Failed to decode ciphertext. "+encryptionKey);
             }
         }
 
+        // 4706 449
+        // 2441	221
+
+        // 4706 : 449 = 2551 : 221x
+        // x =
+
+
         System.out.println(cnt);
-        System.out.println(price);
+        System.out.println(price/1000/1000);
+    }
+
+    static String getKey(String path){
+        StringBuilder eb = new StringBuilder();
+        try{
+            //파일 객체 생성
+            File file = new File(path);
+            //입력 스트림 생성
+            FileReader filereader = new FileReader(file);
+            //입력 버퍼 생성
+            BufferedReader bufReader = new BufferedReader(filereader);
+            String line = "";
+            while((line = bufReader.readLine()) != null){
+                eb.append(line);
+            }
+            //.readLine()은 끝에 개행문자를 읽지 않는다.
+            bufReader.close();
+        }catch (FileNotFoundException e) {
+            // TODO: handle exception
+        }catch(IOException e){
+            System.out.println(e);
+        }
+        return eb.toString();
     }
 }

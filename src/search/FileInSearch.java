@@ -10,11 +10,13 @@ import util.FileUtil;
 
 public abstract class FileInSearch implements FileSearch {
 
-    public void returnFileInSearch(
+    public int returnFileInSearch(
             final String PATH,
             final String[] inKeyword,
             final String[] orKeyword,
             final String[] exceptKeyword) {
+
+        int cnt = 0; // 총 카운트 수
         File[] listOfFiles = FileUtil.fileList(PATH);
         BufferedReader bufReader;
         for (File file : listOfFiles) {
@@ -55,6 +57,7 @@ public abstract class FileInSearch implements FileSearch {
 
                     if (patternOn) {
                         try {
+                            cnt++;
                             checkPattern(line);
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -65,5 +68,6 @@ public abstract class FileInSearch implements FileSearch {
                 e.printStackTrace();
             }
         }
+        return cnt;
     }
 }
