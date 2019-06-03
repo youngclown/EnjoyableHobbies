@@ -13,7 +13,7 @@ import util.FileUtil;
  * @author bymin
  */
 public class URLEncodingRenameFile {
-    final static String PATH = "real path insert!";
+    private final static String PATH = "real path insert!";
 
     public static void main(String[] args) {
         URLEncodingRenameFile rename = new URLEncodingRenameFile();

@@ -18,11 +18,10 @@ public abstract class FileInSearch implements FileSearch {
 
         int cnt = 0; // 총 카운트 수
         File[] listOfFiles = FileUtil.fileList(PATH);
-        BufferedReader bufReader;
         for (File file : listOfFiles) {
-            try {
-                FileReader fileReader = new FileReader(file);
-                bufReader = new BufferedReader(fileReader);
+            try (FileReader fileReader = new FileReader(file);
+                 BufferedReader bufReader = new BufferedReader(fileReader)){
+
                 String line;
                 while ((line = bufReader.readLine()) != null) {
                     boolean patternOn = false;

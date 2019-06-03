@@ -4,14 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FileInSearch extends search.FileInSearch {
-    public Map<String, Integer> map = new HashMap<>();
+    private Map<String, Integer> map = new HashMap<>();
 
-    public Map<String, Integer> getMap() {
+    Map<String, Integer> getMap() {
         return map;
-    }
-
-    public void setMap(Map<String, Integer> map) {
-        this.map = map;
     }
 
     public static void main(String[] args) {

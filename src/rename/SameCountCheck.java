@@ -2,7 +2,6 @@ package rename;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,9 +30,9 @@ public class SameCountCheck {
         File file = new File(path);
         ArrayList<String> list = new ArrayList<>();
         String line;
-        try {
-            FileReader fileReader = new FileReader(file);
-            BufferedReader bufReader = new BufferedReader(fileReader);
+        try (FileReader fileReader = new FileReader(file);
+             BufferedReader bufReader = new BufferedReader(fileReader)){
+
             while ((line = bufReader.readLine()) != null) {
                 list.add(line);
             }

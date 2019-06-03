@@ -9,26 +9,25 @@ import java.io.IOException;
  * @author bymin
  */
 public class ImageRenameFile {
-    final static String PATH = "경로를 입력합니다.";
-    final static String ORIGINAL_PATH = "log";
-    final static String CHANGE_PATH = ".log";
+    private final static String PATH = "경로를 입력합니다.";
+    private final static String ORIGINAL_PATH = "log";
+    private final static String CHANGE_PATH = ".log";
 
     public ImageRenameFile() {
         subDirList(PATH);
     }
 
-    public void subDirList(String source) {
+    private void subDirList(String source) {
         File dir = new File(source);
         File[] fileList = dir.listFiles();
         try {
-            for (int i = 0; i < fileList.length; i++) {
-                File file = fileList[i];
+            for (File file : fileList) {
                 if (file.isFile()) {
                     // 파일이 있다면 파일 이름 출력
 //                    System.out.println("\t 파일 이름 = " + file.getName());
 //                    System.out.println("\t 파일 이름 = " + file.getAbsolutePath());
-                    if ((file.getName().lastIndexOf(ORIGINAL_PATH)+ORIGINAL_PATH.length()) == file.getName().length()) {
-                        file.renameTo(new File(file.getAbsolutePath()+CHANGE_PATH));
+                    if ((file.getName().lastIndexOf(ORIGINAL_PATH) + ORIGINAL_PATH.length()) == file.getName().length()) {
+                        file.renameTo(new File(file.getAbsolutePath() + CHANGE_PATH));
                     }
                 } else if (file.isDirectory()) {
 //                    System.out.println("디렉토리 이름 = " + file.getName());
