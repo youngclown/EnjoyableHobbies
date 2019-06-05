@@ -21,5 +21,10 @@ SameCountCheck.java
 해당 문자 패턴이 얼마만큼 같은지, 판별
 > SameCountCheck.java > 해당 문자 패턴이 얼마만큼 같은지 다른지를 판별
 
+URLEncodingRenameFile.java
+---
+특정 폴더에 있는 파일들을  UrlDecoding 하도록 파일명 변경
+
+
 
 > ImageRenameFile.java > 특정 패턴에 대해 다른 특정 패턴으로 변경 xxx.php > xxx.jpg

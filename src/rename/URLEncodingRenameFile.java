@@ -1,8 +1,8 @@
 package rename;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-import java.nio.charset.StandardCharsets;
 
 import util.FileUtil;
 
@@ -13,7 +13,7 @@ import util.FileUtil;
  * @author bymin
  */
 public class URLEncodingRenameFile {
-    private final static String PATH = "real path insert!";
+    private final static String PATH = "D:\\2345\\123456";
 
     public static void main(String[] args) {
         URLEncodingRenameFile rename = new URLEncodingRenameFile();
@@ -50,13 +50,17 @@ public class URLEncodingRenameFile {
 
     private void renameFile(String filename) {
         File file = new File(filename);
-        // 한칸 빈값을 지우면서 새로운 파일명으로 변경
-        File fileNew = new File(URLDecoder.decode(filename, StandardCharsets.UTF_8).replace(" ",""));
-        if (file.exists()) {
-            boolean result = file.renameTo(fileNew);
-            if (result) {
-                System.out.println(fileNew + " name change success!");
+        try {
+            // 한칸 빈값을 지우면서 새로운 파일명으로 변경
+            File fileNew = new File(URLDecoder.decode(filename, "UTF-8").replace(" ",""));
+            if (file.exists()) {
+                boolean result = file.renameTo(fileNew);
+                if (result) {
+                    System.out.println(fileNew + " name change success!");
+                }
             }
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
         }
     }
 }
