@@ -17,6 +17,12 @@ public abstract class FileInSearch implements FileSearch {
 
         int cnt = 0; // 총 카운트 수
         File[] listOfFiles = FileUtil.fileList(PATH);
+
+        if(listOfFiles == null) {
+            System.out.println("file not found");
+            return -1;
+        }
+
         for (File file : listOfFiles) {
             try (FileReader fileReader = new FileReader(file);
                  BufferedReader bufReader = new BufferedReader(fileReader)){
