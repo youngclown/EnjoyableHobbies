@@ -1,6 +1,5 @@
-package test;
+package searchTest;
 
-import test.FileInSearch;
 import util.Base64;
 import util.Decrypter;
 

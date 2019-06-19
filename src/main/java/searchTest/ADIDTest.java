@@ -1,4 +1,4 @@
-package test;
+package searchTest;
 
 
 public class ADIDTest extends FileInSearch {

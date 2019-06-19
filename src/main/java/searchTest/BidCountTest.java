@@ -1,4 +1,4 @@
-package test;
+package searchTest;
 
 
 public class BidCountTest extends FileInSearch {

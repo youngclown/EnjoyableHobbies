@@ -1,4 +1,4 @@
-package count;
+package searchTest;
 
 /**
  * 와이프가 무슨 파일을 분석해달라고 해서 만든 파일.
