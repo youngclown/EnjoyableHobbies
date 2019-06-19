@@ -1,7 +1,9 @@
-package rename;
+package test;
 
 
-public class BidCountTest extends FileInSearch{
+import rename.FileInSearch;
+
+public class BidCountTest extends FileInSearch {
 
     static int count1 = 0;
     static int count2 = 0;

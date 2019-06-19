@@ -1,6 +1,8 @@
-package rename;
+package test;
 
-public class UrlCallTest extends FileInSearch{
+import rename.FileInSearch;
+
+public class UrlCallTest extends FileInSearch {
 
     public void checkPattern(String line) {
         System.out.println(line);
