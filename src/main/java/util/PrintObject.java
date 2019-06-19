@@ -43,5 +43,4 @@ public class PrintObject {
         }
         System.out.println("<< END printVO : " + vo.getClass().getName() + " >>");
     }
-
 }
