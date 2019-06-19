@@ -1,7 +1,5 @@
 package test;
 
-import rename.FileInSearch;
-
 public class UrlCallTest extends FileInSearch {
 
     public void checkPattern(String line) {

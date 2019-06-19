@@ -1,5 +1,6 @@
-package rename;
+package test;
 
+import test.FileInSearch;
 import util.Base64;
 import util.Decrypter;
 

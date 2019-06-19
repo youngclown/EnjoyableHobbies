@@ -1,4 +1,4 @@
-package rename;
+package test;
 
 import java.util.HashMap;
 import java.util.Map;
