@@ -1,10 +1,10 @@
-# Hobbies
+# Hobbies (Toy)
 
 ```
 1. Hobbies Coding
 ```
 
-개인적인 취미 
+개인적인 취미로 단순 처리작업들을 편하게 하기 위한 작업파일들의 묶음.  
 
 ImageRenameFile.java
 ---
