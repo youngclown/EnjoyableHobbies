@@ -14,7 +14,6 @@ public class UrlCallTest extends FileInSearch {
         final String[] exceptKeyword = {};
 
         UrlCallTest check = new UrlCallTest();
-        int cnt = check.returnFileInSearch(PATH, inKeyword, orKeyword, exceptKeyword);
-        System.out.println(cnt);
+        check.returnFileInSearch(PATH, inKeyword, orKeyword, exceptKeyword);
     }
 }
