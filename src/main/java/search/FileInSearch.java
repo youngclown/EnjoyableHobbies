@@ -9,13 +9,12 @@ import java.io.IOException;
 
 public abstract class FileInSearch implements FileSearch {
 
-    public int returnFileInSearch(
+    public void returnFileInSearch(
             final String PATH,
             final String[] inKeyword,
             final String[] orKeyword,
             final String[] exceptKeyword) {
 
-        int cnt = 0; // 총 카운트 수
         File[] listOfFiles = FileUtil.fileList(PATH);
 
         if (listOfFiles == null) {
@@ -26,8 +25,6 @@ public abstract class FileInSearch implements FileSearch {
                 filePlay(file, inKeyword, orKeyword, exceptKeyword);
             }
         }
-
-        return cnt;
     }
 
 
@@ -43,6 +40,7 @@ public abstract class FileInSearch implements FileSearch {
             while ((line = bufReader.readLine()) != null) {
                 boolean patternOn = false;
 
+                if (orKeyword != null)
                 // 해당 배열이 or 조건으로 존재하면 무조건 true
                 for (String keyword : orKeyword) {
                     if (line.contains(keyword)) {
@@ -51,6 +49,7 @@ public abstract class FileInSearch implements FileSearch {
                     }
                 }
 
+                if (inKeyword != null)
                 // 해당 배열이 전부 있어야 함.
                 for (String keyword : inKeyword) {
                     if (line.contains(keyword)) {
@@ -62,7 +61,7 @@ public abstract class FileInSearch implements FileSearch {
                 }
 
                 // 해당 배열이 하나라도 있으면 false
-                if (patternOn && exceptKeyword.length > 0) {
+                if (exceptKeyword != null && patternOn && exceptKeyword.length > 0) {
                     for (String keyword : exceptKeyword) {
                         if (line.contains(keyword)) {
                             patternOn = false;
