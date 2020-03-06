@@ -52,7 +52,7 @@ public abstract class FileInSearch implements FileSearch {
                 if (inKeyword != null)
                 // 해당 배열이 전부 있어야 함.
                 for (String keyword : inKeyword) {
-                    if (line.contains(keyword)) {
+                    if (line.contains(keyword) && patternOn) {
                         patternOn = true;
                     } else {
                         patternOn = false;
